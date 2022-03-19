@@ -4,9 +4,9 @@
 
 #include "parser.h"
 
-int main(){
-//	objParser *op = new objParser("./bunny.obj");
-//	op -> printVertexes();
+int main(int argc, char* argv[]) {
+	objParser *op = new objParser(argv[1]);
+	op -> printVertexes();
 
     glfwInit();
     // Specify OpenGL version

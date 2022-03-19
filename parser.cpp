@@ -1,26 +1,25 @@
 #include "parser.h"
 #include <fstream> 
 
-objParser::objParser(string path) {
-	cout << "HI" << endl;
-	loadfile(path);
-}
-
-ostream& operator<<(ostream& os, const objParser::DDD_point& p) {
+std::ostream& operator<<(std::ostream& os, const objParser::DDD_point& p) {
 	os << p.x << " " << p.y << " " << p.z << "\n";
 	return os;
 }
 
-void objParser::loadfile(string path) {
-	ifstream fin(path);
+objParser::objParser(std::string path) {
+	loadfile(path);
+}
 
+void objParser::loadfile(std::string path) {
+	std::ifstream fin(path);
+	std::cout << "Open file: " << path << "\n";
 	if(!fin) {
-		cout << "Cannot open file: " << path << "\n";
+		std::cout << "Cannot open file filaed: " << path << "\n";
 	}
 
 
 	while(!fin.eof()) {
-		string tmp;
+		std::string tmp;
 
 		fin >> tmp;
 
@@ -34,6 +33,6 @@ void objParser::loadfile(string path) {
 
 void objParser::printVertexes() {
 	for(DDD_point vertex : vertexes) {
-		cout << vertex;
+		std::cout << vertex;
 	}
 }

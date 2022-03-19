@@ -1,7 +1,7 @@
 #include "parser.h"
 
-int main() {
-	objParser *op = new objParser("./bunny.obj");
+int main(int argc, char* argv[]) {
+	objParser *op = new objParser(argv[1]);
 
 	op -> printVertexes();
 

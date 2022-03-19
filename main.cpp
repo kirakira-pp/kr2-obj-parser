@@ -2,7 +2,31 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include <glm/glm.hpp>
+#include <glm/ext.hpp>
+
 #include "parser.h"
+#include "Log.h"
+
+struct Test
+{
+    int a;
+
+    friend std::ostream& operator<<(std::ostream& out, const Test &test)
+    {
+        out << test.a;
+        return out;
+    }
+};
+
+template <>
+struct fmt::formatter<Test>: formatter<std::string> {
+    template <typename FormatContext>
+    auto format(Test t, FormatContext& ctx) {
+        auto ans = fmt::format("Fuck = {}", t.a);
+        return formatter<std::string>::format(ans, ctx);
+    }
+};
 
 int main(int argc, char* argv[]) {
 	objParser *op = new objParser(argv[1]);
@@ -10,6 +34,11 @@ int main(int argc, char* argv[]) {
 #ifdef VERBOSE
 	op -> printVertexes();
 #endif
+
+    INFO("test");
+    TRACE("123123");
+    Test t;
+    DEBUG("{} {} {} {} {}", 1, "2", 3.f, 4.0, t);
 
     glfwInit();
     // Specify OpenGL version

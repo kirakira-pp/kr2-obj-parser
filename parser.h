@@ -27,8 +27,11 @@ public:
 	void printVertexes();
 
 private:
-	void loadfile(std::string path);
+	// Vertex parser
+	Vertex parseVertex(std::string input);
+
+	// Parser handler
+	void parseObjFile(std::string path);
 	
-	std::vector<DDD_point> vertexes;
-	// void render();
+	std::vector<Vertex> vertexes;
 };

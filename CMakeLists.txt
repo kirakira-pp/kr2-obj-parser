@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
 add_subdirectory(vendor/glfw)
 add_subdirectory(vendor/glad)
-add_subdirectory(vendor/spdlog)
+# add_subdirectory(vendor/spdlog)
 
 add_executable(${PROJECT_NAME}
         main.cpp

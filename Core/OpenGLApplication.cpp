@@ -59,11 +59,10 @@ void OpenGLApplication::ProcessInputInternal()
     ProcessInput();
 }
 
-float OpenGLApplication::UpdateInternal()
+void OpenGLApplication::UpdateInternal(float dt)
 {
     glClear(GL_COLOR_BUFFER_BIT);
-    Update(0.f);
-    return 0;
+    Update(dt);
 }
 
 void OpenGLApplication::RenderInternal()
@@ -75,4 +74,9 @@ void OpenGLApplication::RenderInternal()
 bool OpenGLApplication::IsWindowRunning()
 {
     return !glfwWindowShouldClose(m_Window);
+}
+
+float OpenGLApplication::GetCurrentTime()
+{
+    return (float)glfwGetTime();
 }

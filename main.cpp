@@ -21,7 +21,7 @@ public:
 
     void Update(float dt) override
     {
-        INFO("Update");
+        INFO("Update {}", dt);
     }
 
     void Render() override
@@ -30,13 +30,8 @@ public:
     }
 };
 
-int main(int argc, char* argv[]) {
-//	objParser *op = new objParser(argv[1]);
-
-#ifdef VERBOSE
-	op -> printVertexes();
-#endif
-
+int main(int argc, char* argv[])
+{
     MyApp app(argc, argv);
     app.Run();
 }

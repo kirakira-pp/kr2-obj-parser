@@ -28,10 +28,19 @@ void Application::Run()
 
     while(IsWindowRunning())
     {
+        float dt = GetElapsedTime();
         ProcessInputInternal();
-        UpdateInternal();
+        UpdateInternal(dt);
         RenderInternal();
     }
 
     Shutdown();
+}
+
+float Application::GetElapsedTime()
+{
+    float now = GetCurrentTime();
+    float elapsed = now - m_LastTime;
+    m_LastTime = now;
+    return elapsed;
 }

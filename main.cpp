@@ -6,7 +6,10 @@
 
 int main(int argc, char* argv[]) {
 	objParser *op = new objParser(argv[1]);
+
+#ifdef VERBOSE
 	op -> printVertexes();
+#endif
 
     glfwInit();
     // Specify OpenGL version

@@ -14,9 +14,18 @@ add_subdirectory(vendor/fmt)
 add_executable(${PROJECT_NAME}
         main.cpp
         obj_parser.cpp
-	vertex_parser.cpp
-        Log.cpp
-)
+		vertex_parser.cpp
+		Graphics/VertexBuffer.cpp
+
+        # Application
+		Core/Application.cpp
+		Core/OpenGLApplication.cpp
+		Core/Log.cpp)
+
+target_include_directories(${PROJECT_NAME}
+		PUBLIC .
+		PUBLIC Core
+		PUBLIC Graphics)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
         glfw

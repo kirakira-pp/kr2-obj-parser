@@ -10,17 +10,23 @@ add_subdirectory(vendor/glad)
 # add_subdirectory(vendor/spdlog)
 add_subdirectory(vendor/glm)
 add_subdirectory(vendor/fmt)
+add_subdirectory(vendor/stb)
 
 add_executable(${PROJECT_NAME}
         main.cpp
         obj_parser.cpp
 		vertex_parser.cpp
-		Graphics/VertexBuffer.cpp
 
         # Application
 		Core/Application.cpp
 		Core/OpenGLApplication.cpp
-		Core/Log.cpp)
+		Core/Log.cpp
+
+		Graphics/VertexBuffer.cpp
+		Graphics/IndexBuffer.cpp
+		Graphics/Shader.cpp
+		Graphics/VertexArray.cpp
+		Graphics/Texture.cpp)
 
 target_include_directories(${PROJECT_NAME}
 		PUBLIC .
@@ -31,4 +37,5 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         glfw
         glad::glad
         glm::glm
-        fmt::fmt)
+        fmt::fmt
+		stb::stb)

@@ -19,19 +19,37 @@ Application::~Application()
 
 void Application::Run()
 {
-    if(!Init())
+    if(!InitInternal())
     {
-        ERROR("Failed to Initialize Application");
-        Shutdown();
+        LOG_ERROR("Failed to Initialize Application");
+        ShutdownInternal();
         return;
     }
 
     while(IsWindowRunning())
     {
+        float dt = GetElapsedTime();
         ProcessInputInternal();
-        UpdateInternal();
+        UpdateInternal(dt);
         RenderInternal();
     }
 
-    Shutdown();
+    ShutdownInternal();
+}
+
+float Application::GetElapsedTime()
+{
+    float now = GetCurrentTime();
+    float elapsed = now - m_LastTime;
+    m_LastTime = now;
+    return elapsed;
+}
+
+bool Application::InitInternal()
+{
+    return true;
+}
+
+void Application::ShutdownInternal()
+{
 }

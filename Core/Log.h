@@ -6,12 +6,12 @@
 #include <memory>
 #include <fmt/format.h>
 
-#define TRACE(...) g_Logger.LogMessage(Log::LogLevelTrace, __FILE__, __LINE__, __PRETTY_FUNCTION__, __VA_ARGS__)
-#define DEBUG(...) g_Logger.LogMessage(Log::LogLevelDebug, __FILE__, __LINE__, __PRETTY_FUNCTION__, __VA_ARGS__)
-#define INFO(...) g_Logger.LogMessage(Log::LogLevelInfo, __FILE__, __LINE__, __PRETTY_FUNCTION__, __VA_ARGS__)
-#define WARN(...) g_Logger.LogMessage(Log::LogLevelWarn, __FILE__, __LINE__, __PRETTY_FUNCTION__, __VA_ARGS__)
-#define ERROR(...) g_Logger.LogMessage(Log::LogLevelError, __FILE__, __LINE__, __PRETTY_FUNCTION__, __VA_ARGS__)
-#define CRITICAL(...) g_Logger.LogMessage(Log::LogLevelCritical, __FILE__, __LINE__, __PRETTY_FUNCTION__, __VA_ARGS__)
+#define LOG_TRACE(...) g_Logger.LogMessage(Log::LogLevelTrace, __FILE__, __LINE__, __PRETTY_FUNCTION__, __VA_ARGS__)
+#define LOG_DEBUG(...) g_Logger.LogMessage(Log::LogLevelDebug, __FILE__, __LINE__, __PRETTY_FUNCTION__, __VA_ARGS__)
+#define LOG_INFO(...) g_Logger.LogMessage(Log::LogLevelInfo, __FILE__, __LINE__, __PRETTY_FUNCTION__, __VA_ARGS__)
+#define LOG_WARN(...) g_Logger.LogMessage(Log::LogLevelWarn, __FILE__, __LINE__, __PRETTY_FUNCTION__, __VA_ARGS__)
+#define LOG_ERROR(...) g_Logger.LogMessage(Log::LogLevelError, __FILE__, __LINE__, __PRETTY_FUNCTION__, __VA_ARGS__)
+#define LOG_CRITICAL(...) g_Logger.LogMessage(Log::LogLevelCritical, __FILE__, __LINE__, __PRETTY_FUNCTION__, __VA_ARGS__)
 
 class Log
 {

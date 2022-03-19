@@ -14,17 +14,20 @@ public:
     OpenGLApplication(int argc, char* argv[]);
     ~OpenGLApplication();
 
-    bool Init() override;
-    void Shutdown() override;
+    bool InitInternal() override;
+    void ShutdownInternal() override;
 
     void ProcessInputInternal() override;
-    float UpdateInternal() override;
+    void UpdateInternal(float dt) override;
     void RenderInternal() override;
 
     bool IsWindowRunning() override;
 
 private:
     GLFWwindow *m_Window;
+
+protected:
+    float GetCurrentTime() override;
 };
 
 #endif //KR2_OBJ_PARSER_OPENGLAPPLICATION_H

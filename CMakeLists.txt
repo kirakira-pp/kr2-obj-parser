@@ -8,11 +8,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 add_subdirectory(vendor/glfw)
 add_subdirectory(vendor/glad)
 # add_subdirectory(vendor/spdlog)
+add_subdirectory(vendor/glm)
+add_subdirectory(vendor/fmt)
 
 add_executable(${PROJECT_NAME}
         main.cpp
         obj_parser.cpp
 	vertex_parser.cpp
+        Log.cpp
 )
 
-target_link_libraries(${PROJECT_NAME} PUBLIC glfw glad::glad)
+target_link_libraries(${PROJECT_NAME} PUBLIC
+        glfw
+        glad::glad
+        glm::glm
+        fmt::fmt)

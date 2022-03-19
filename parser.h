@@ -2,26 +2,24 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-
 class objParser {
 public:
 	struct DDD_point {
 		double x, y, z;
 
-		friend ostream& operator<<(ostream& os, const DDD_point& p);
+		friend std::ostream& operator<<(std::ostream& os, const DDD_point& p);
 	};
 
 	struct Face {};
 
-	objParser(string path);
+	objParser(std::string path);
 	~objParser();
 
 	void printVertexes();
 
 private:
-	void loadfile(string path);
+	void loadfile(std::string path);
 	
-	vector<DDD_point> vertexes;
+	std::vector<DDD_point> vertexes;
 	// void render();
 };

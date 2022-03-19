@@ -11,7 +11,8 @@ add_subdirectory(vendor/spdlog)
 
 add_executable(${PROJECT_NAME}
         main.cpp
-        parser.cpp
+        obj_parser.cpp
+	vertex_parser.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC glfw glad::glad)

@@ -17,6 +17,8 @@ struct Log::Impl
 Log::Log()
 {
     m_Impl = std::make_unique<Impl>();
+
+    setvbuf(stdout, NULL, _IONBF, 0);
 }
 
 Log::~Log()

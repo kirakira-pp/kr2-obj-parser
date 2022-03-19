@@ -14,8 +14,8 @@ public:
     OpenGLApplication(int argc, char* argv[]);
     ~OpenGLApplication();
 
-    bool Init() override;
-    void Shutdown() override;
+    bool InitInternal() override;
+    void ShutdownInternal() override;
 
     void ProcessInputInternal() override;
     void UpdateInternal(float dt) override;

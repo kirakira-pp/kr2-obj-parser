@@ -19,10 +19,10 @@ Application::~Application()
 
 void Application::Run()
 {
-    if(!Init())
+    if(!InitInternal())
     {
-        ERROR("Failed to Initialize Application");
-        Shutdown();
+        LOG_ERROR("Failed to Initialize Application");
+        ShutdownInternal();
         return;
     }
 
@@ -34,7 +34,7 @@ void Application::Run()
         RenderInternal();
     }
 
-    Shutdown();
+    ShutdownInternal();
 }
 
 float Application::GetElapsedTime()
@@ -43,4 +43,13 @@ float Application::GetElapsedTime()
     float elapsed = now - m_LastTime;
     m_LastTime = now;
     return elapsed;
+}
+
+bool Application::InitInternal()
+{
+    return true;
+}
+
+void Application::ShutdownInternal()
+{
 }

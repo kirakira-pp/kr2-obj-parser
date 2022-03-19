@@ -26,6 +26,9 @@ public:
 
 	void printVertexes();
 
+	// vertexes
+	std::vector<Vertex> vertexes;
+
 private:
 	// Vertex parser
 	Vertex parseVertex(std::string input);
@@ -33,5 +36,4 @@ private:
 	// Parser handler
 	void parseObjFile(std::string path);
 	
-	std::vector<Vertex> vertexes;
 };

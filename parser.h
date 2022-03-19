@@ -4,10 +4,19 @@
 
 class objParser {
 public:
-	struct DDD_point {
-		double x, y, z;
+	struct Vertex {
+private:
+		double x, y, z, w;
+public:
+		// Constructor
+		Vertex();
+		Vertex(double x, double y, double z, double w);
 
-		friend std::ostream& operator<<(std::ostream& os, const DDD_point& p);
+		// Print
+		friend std::ostream& operator<<(std::ostream& os, const Vertex& p);
+		
+		// Set funciton
+		void set(double x, double y, double z, double w);
 	};
 
 	struct Face {};
